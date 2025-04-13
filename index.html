@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 My Love Story Gallery 💖</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .gallery-container {
+            text-align: center;
+            padding: 20px;
+        }
+        .image-container img {
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+            border: 5px solid #fff;
+            border-radius: 10px;
+        }
+        .button {
+            background-color: #ffb6c1;
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        .button:hover {
+            background-color: #ff69b4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gallery-container">
+    <h1>💖 My Love Story Gallery 💖</h1>
+
+    <div class="image-container">
+        <img id="galleryImage" src="photo1.jpg" alt="Love Story Photo">
+    </div>
+
+    <br>
+    <button class="button" onclick="changeImage('prev')">⟨ Previous</button>
+    <button class="button" onclick="changeImage('next')">Next ⟩</button>
+</div>
+
+<script>
+    let images = [
+        'photo1.jpg', 'photo2.jpg', 'photo3.jpg', // Add the filenames of your images here
+        'photo4.jpg', 'photo5.jpg'
+    ];
+    let currentIndex = 0;
+
+    function changeImage(direction) {
+        if (direction === 'next') {
+            currentIndex = (currentIndex + 1) % images.length;
+        } else if (direction === 'prev') {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+        }
+        document.getElementById('galleryImage').src = images[currentIndex];
+    }
+</script>
+
+</body>
+</html>
